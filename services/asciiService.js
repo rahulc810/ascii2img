@@ -1,12 +1,11 @@
 const logger = require('../utils/logger')
 const jpegJs = require('jpeg-js')
 const _ = require('lodash')
-// const ASCII_MAP = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI;:,\"^`'. "
+//const ASCII_MAP = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI;:,\"^`'. "
 // const ASCII_MAP = "@MBHENR#KWXDFPQASUZbdehx*8Gm&04LOVYkpq5Tagns69owz$CIu23Jcfry%1v7l+it[] {}?j|()=~!-/<>\"^_';,:`. "
 // const ASCII_MAP = " .:-=+*#%@"
 const ASCII_MAP = '@%#*+=-:. '
-// $@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,"^`'.
-// @MBHENR#KWXDFPQASUZbdehx*8Gm&04LOVYkpq5Tagns69owz$CIu23Jcfry%1v7l+it[] {}?j|()=~!-/<>\"^_';,:`. 
+
 
 const printImg = function (arr, width) {
   let ret = '', line = ''
@@ -33,31 +32,30 @@ const getAvgArray = function (raw) {
   return oneD
 }
 
-const trimImg = function (img, factor) {
-  const width = img.width
-  let raw = img.data
+const trimImg = function (rawPixels, factor, width) {
   let factorChunks = Math.floor(width / factor)
   let extra = width - (factorChunks * factor)
   let prunedImg = []
-  for (let i = 0, row = 0; i < raw.length; i++) {
+  for (let i = 0, row = 0; i < rawPixels.length; i++) {
     if (i > (row * width) + (factorChunks * factor) - 1) {
       // jump extra
       i += extra - 1
       row++
       continue
     }else {
-      prunedImg.push(raw[i])
+      prunedImg.push(rawPixels[i])
     }
   }
-  img.data = Buffer.from(prunedImg)
+  const img ={}
+  img.data = prunedImg
   img.width = factorChunks * factor
   // free
   raw = null
   return img
 }
 
-const getAvgArrayNew = function (raw, factor, width) {
-  let pixelArray = []
+const getPixels = function(raw){
+    let pixelArray = []
   for (let i = 0; i < raw.length - 3; i += 4) {
     pixelArray.push({
       r: raw[i],
@@ -67,7 +65,10 @@ const getAvgArrayNew = function (raw, factor, width) {
     })
   }
   logger.info('Total pixels: ' + pixelArray.length)
+  return pixelArray
+}
 
+const getAvgArrayNew = function (pixelArray, factor, width) {
   let oneD = []
   for (let i = 0; i < pixelArray.length; i = i + ((width / factor) * factor * factor)) {
     for (let j = i; j < i + width; j += factor) {
@@ -102,12 +103,9 @@ const render = function (data, factor) {
   if (factor > img.width || factor > img.height) {
     throw 'Invalid factor'
   }
-  img = trimImg(img, factor)
 
-  createImg(img.data)
-
-  // const ratio = img.width / img.height
-
+  const pixelArray = getPixels(img.data)
+  img = trimImg(pixelArray, factor, img.width)
   let oneD = getAvgArrayNew(img.data, factor, img.width)
   logger.info('Image details: ' + JSON.stringify({
       width: img.width,
