@@ -7,7 +7,7 @@ const logFormat = printf(info => {
   
 const logger = createLogger({
     format: combine(
-        label({ label: 'right meow!' }),
+        label({ label: 'dev' }),
         timestamp(),
         logFormat
       ),
