@@ -12,9 +12,10 @@ router.post('/', function (req, res) {
     const factor = parseInt(req.body.factor)
     const ret = asciiService(req.files.rawImg.data, factor)
 
-    res.render('ascii2img', {
-        asciiImg: ret
-    })
+    res.send(ret)
+    // res.render('ascii2img', {
+    //     asciiImg: ret
+    // })
 });
 
 module.exports = router;

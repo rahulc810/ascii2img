@@ -82,6 +82,7 @@ const validateFactor = (factor, width, height) => {
 }
 
 const render = function (data, factor) {
+  if(!factor){factor = 1;}
   // prepare pixel array
   let img = jpegJs.decode(data, true)
 
