@@ -45,7 +45,11 @@ $(document).ready(function () {
                 $("#result").text(data);
                 console.log("SUCCESS : ", data);
                 $("#btnSubmit").prop("disabled", false);
-
+                $('#controls').animate({bottom: "2%", left: "2%"}, 1000);
+                $('.font-control').animate({opacity: "1"}, 1000);
+                // $('.middle').each(function(i, element) {
+                //     element.className = element.className.replace(/middle/, 'left-bottom');
+                // });
             },
             error: function (e) {
                 $("#result").text(e.responseText);
