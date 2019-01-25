@@ -1,54 +1,31 @@
 body {
   background-color: antiquewhite;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-a {
-  color: rgb(79, 160, 192);
-}
-/* 
-.hcenter {
-  text-align: center;
+.github-fork-ribbon {
+  background: tomato;
 }
 
-.middle{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; 
-}
-
-.inputfile + label{
-  background-color: blueviolet;
-}
-
-
-.inputfile + label div{
-  height: 8em;
-  width: 8em;
-  border-radius: 50%;
-  background-color: rgb(206, 81, 112);
-} */
-
-
-#area{
+#area {
   visibility: hidden;
   height: 32vh;
   z-index: -999;
   background: seagreen;
 }
 
-.ascii{
+.ascii {
   font-size: 1px;
   z-index: -10;
 }
 
-#result-wrapper{
+#result-wrapper {
   text-align: center;
 }
 
-.container{
-  display: grid;
+.container {
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   justify-content: space-around
@@ -58,7 +35,7 @@ form {
   display: inline-block;
 }
 
-.inputfile{
+.inputfile {
   width: 0.1px;
   height: 0.1px;
   opacity: 0;
@@ -68,21 +45,28 @@ form {
   position: fixed;
   bottom: 55vh;
   left: 45vw;
-} 
+}
 
-.icon{
-  background: tomato;
+.icon {
   color: white;
   border-radius: 50%;
   margin: 3vmin;
   left: 0px;
   box-shadow: 1px 1px 5px grey;
   /* w0 = wI -2m; */
-  width: 9vmin; 
+  width: 9vmin;
   height: 9vmin;
 }
 
-.submit{
+.filled {
+  background: tomato;
+}
+
+.empty {
+  background: rgba(123, 65, 65, 0.61);
+}
+
+.submit {
   background: rgb(39, 147, 197);
   color: white;
   border-radius: 50%;
@@ -91,29 +75,16 @@ form {
   left: -1vw;
   bottom: -0.9vh;
   box-shadow: 1px 1px 5px grey;
-} 
+}
 
-.svg{
+.svg {
   width: 8vmin;
   height: 8vmin;
   fill: wheat;
   margin-left: 0.2vmin;
 }
 
-
-.left-bottom{
-  display: inline-block;
-  color: white;
-  text-align: center;
-  cursor: pointer;
-  position: fixed;
-  bottom: 10px;
-  opacity: 0.8;
-  box-shadow: 1px 1px 5px grey;
-}
-
-
-.middle{
+.middle {
   display: inline-block;
   color: white;
   text-align: center;
@@ -122,27 +93,27 @@ form {
   opacity: 0.8;
 }
 
-.left-bottom:hover{
+.middle:hover {
   opacity: 1;
 }
 
 .font-control {
-  background: seagreen;
+  background: tomato;
   padding: 5px 12px;
   bottom: -0.9vh;
   opacity: 0;
   box-shadow: 1px 1px 5px grey;
 }
 
-.font-control-plus{
+.font-control-plus {
   left: -0.5vw;
 }
 
-.font-control-minus{
+.font-control-minus {
   left: -0.5vw;
 }
 
-.gear{
+.gear {
   display: block;
   position: absolute;
   z-index: -100;
@@ -153,6 +124,36 @@ form {
   height: 15vmin;
 }
 
-.hide{
-  visibility: hidden;
+.github-corner-cat {
+  fill: #FD6C6C;
+  color: antiquewhite;
+  position: absolute;
+  top: 0;
+  border: 0;
+  right: 0;
+}
+
+.github-corner:hover .octo-arm {
+  animation: octocat-wave 560ms ease-in-out
+}
+
+@keyframes octocat-wave {
+  0%, 100% {
+    transform: rotate(0)
+  }
+  20%, 60% {
+    transform: rotate(-25deg)
+  }
+  40%, 80% {
+    transform: rotate(10deg)
+  }
+}
+
+@media (max-width:500px) {
+  .github-corner:hover .octo-arm {
+    animation: none
+  }
+  .github-corner .octo-arm {
+    animation: octocat-wave 560ms ease-in-out
+  }
 }
