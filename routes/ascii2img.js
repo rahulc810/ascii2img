@@ -13,9 +13,6 @@ router.post('/', function (req, res) {
     const ret = asciiService(req.files.rawImg.data, factor)
 
     res.send(ret)
-    // res.render('ascii2img', {
-    //     asciiImg: ret
-    // })
 });
 
 module.exports = router;
