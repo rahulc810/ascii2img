@@ -66,16 +66,20 @@ form {
 
 #controls {
   position: fixed;
-  bottom: 55%;
-  left: 45%;
+  bottom: 55vh;
+  left: 45vw;
 } 
 
 .icon{
   background: tomato;
   color: white;
   border-radius: 50%;
-  padding: 2em;
+  margin: 3vmin;
   left: 0px;
+  box-shadow: 1px 1px 5px grey;
+  /* w0 = wI -2m; */
+  width: 9vmin; 
+  height: 9vmin;
 }
 
 .submit{
@@ -85,13 +89,15 @@ form {
   padding: 0.5em;
   margin-right: 1vmin;
   left: -1vw;
-  bottom: -0.9vw;
+  bottom: -0.9vh;
+  box-shadow: 1px 1px 5px grey;
 } 
 
 .svg{
-  width: 10vmin;
-  height: 10vmin;
-  fill: wheat
+  width: 8vmin;
+  height: 8vmin;
+  fill: wheat;
+  margin-left: 0.2vmin;
 }
 
 
@@ -114,7 +120,6 @@ form {
   cursor: pointer;
   position: relative;
   opacity: 0.8;
-  box-shadow: 1px 1px 5px grey;
 }
 
 .left-bottom:hover{
@@ -124,8 +129,9 @@ form {
 .font-control {
   background: seagreen;
   padding: 5px 12px;
-  bottom: -0.9vw;
+  bottom: -0.9vh;
   opacity: 0;
+  box-shadow: 1px 1px 5px grey;
 }
 
 .font-control-plus{
@@ -134,4 +140,19 @@ form {
 
 .font-control-minus{
   left: -0.5vw;
+}
+
+.gear{
+  display: block;
+  position: absolute;
+  z-index: -100;
+  /* left: 7.7vw;*/
+  top: 0.01vh;
+  bottom: 1vh;
+  width: 15vmin;
+  height: 15vmin;
+}
+
+.hide{
+  visibility: hidden;
 }

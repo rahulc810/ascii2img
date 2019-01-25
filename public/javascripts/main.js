@@ -1,5 +1,11 @@
 $(document).ready(function () {
 
+    const updateGear = function(){
+        document.getElementById("innergear").setAttribute("dur", "22.8s");
+    }
+
+    updateGear();
+
     $('#plus').click(function(event){
         let elem = $('#result-wrapper');
         const step = 2;
@@ -17,6 +23,7 @@ $(document).ready(function () {
     });
 
     $("#submit").click(function (event) {
+        document.getElementById("innergear").setAttribute("dur", "2.8s");
         //stop submit the form, we will post it manually.
         event.preventDefault();
 
@@ -50,8 +57,11 @@ $(document).ready(function () {
                 // $('.middle').each(function(i, element) {
                 //     element.className = element.className.replace(/middle/, 'left-bottom');
                 // });
+                updateGear();
+                //elements[i].setAttribute("visibility", "visible");
             },
             error: function (e) {
+                updateGear();
                 $("#result").text(e.responseText);
                 console.log("ERROR : ", e);
                 $("#btnSubmit").prop("disabled", false);
