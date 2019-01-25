@@ -1,12 +1,12 @@
 extends layout
 
+
 block content
   div.container
-        //- div
-        //-   label Rendering factor
-        //-   input(name="factor" type="text")
+    a(class="github-fork-ribbon" href="https://github.com/rahulc810/ascii2img" data-ribbon="Fork me on GitHub" title="Fork me on GitHub") Fork me on GitHub
+    
     #result-wrapper.ascii
-          pre#result
+      pre#result
   
     div#controls
       form(action="/ascii2img" id="ascii2img" method="post" encType="multipart/form-data")
