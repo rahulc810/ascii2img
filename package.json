@@ -24,10 +24,12 @@
     "winston": "^3.1.0"
   },
   "devDependencies": {
+    "coveralls": "^3.0.2",
     "mocha": "^5.2.0"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "coveralls": "jest --coverage && cat ./tests/coverage/lcov.info | coveralls"
   },
   "repository": {
     "type": "git",
