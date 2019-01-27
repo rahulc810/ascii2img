@@ -10,7 +10,7 @@ const ASCII_RAMPS = {
   'color': '@@@@'
 }
 const ASCII_MAP = ASCII_RAMPS.small
-const DEFAULT_RENDERING_FACTOR = 4
+const DEFAULT_RENDERING_FACTOR = 1
 
 const _printImgage = function (img) {
   const arr = img.data

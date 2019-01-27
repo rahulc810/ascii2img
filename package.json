@@ -1,22 +1,31 @@
 {
   "name": "ascii2img",
-  "version": "0.0.0",
-  "private": true,
-  "scripts": {
-    "start": "node ./bin/www",
-    "test": "mocha"
+  "version": "1.0.0",
+  "description": "Renders jpeg images as ascii characters.",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
   },
   "dependencies": {
-    "cookie-parser": "~1.4.3",
-    "debug": "~2.6.9",
-    "express": "~4.16.0",
-    "express-fileupload": "^1.0.0",
-    "get-image-colors": "^1.8.1",
-    "http-errors": "~1.6.2",
-    "jade": "~1.11.0",
-    "lodash": "^4.17.11",
-    "morgan": "~1.9.0",
-    "ndarray": "^1.0.18",
-    "winston": "^3.1.0"
-  }
+    "body-parser": "^1.18.3",
+    "chai": "^4.2.0",
+    "compression": "^1.7.3",
+    "mocha-each": "^1.2.0"
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rahulc810/ascii2img.git"
+  },
+  "author": "Rahul Chauhan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rahulc810/ascii2img/issues"
+  },
+  "homepage": "https://github.com/rahulc810/ascii2img#readme"
 }
