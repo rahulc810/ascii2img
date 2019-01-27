@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    init();
     $('#rawImg').change(function(){
         adjustFileSelection();
     });
@@ -22,6 +23,7 @@ $(document).ready(function () {
             cache: false,
             timeout: 600000,
             success: function (data) {
+                //data = data.replace(/\s/g, "&nbsp;").replace(/XX/g, " ");
                 updateControls(data);
             },
             error: function (e) {
@@ -71,10 +73,16 @@ const adjustFileSelection = function(){
 const updateControls=function(data){
     slowGear(true);
     $('#rawImg').val('');
-    $("#result").text(data);
+    //$("#result").text(data);
+    $("#result").html(data);
     adjustFileSelection();
     //Move toolbar to bottom left
     $('#controls').animate({bottom: "2%", left: "2%"}, 1000);
     //display zoom in and out controls
     $('.font-control').animate({opacity: "1"}, 1000);
+}
+
+
+const init = function(){
+    Sentry.init({ dsn: 'https://e7bb51a6f4654803bb45bc4a133a3d51@sentry.io/1379439' });
 }
