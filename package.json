@@ -25,11 +25,14 @@
   },
   "devDependencies": {
     "coveralls": "^3.0.2",
-    "mocha": "^5.2.0"
+    "istanbul": "^0.4.5",
+    "mocha": "^5.2.0",
+    "mocha-lcov-reporter": "^1.3.0"
   },
   "scripts": {
     "test": "mocha",
-    "coveralls": "jest --coverage && cat ./tests/coverage/lcov.info | coveralls"
+    "cover": "istanbul cover _mocha",
+    "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls"
   },
   "repository": {
     "type": "git",
