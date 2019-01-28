@@ -8,7 +8,7 @@ cache:
   - node_modules
 
 before_install:
-- docker build -t rahulc810/ascii2img:${TRAVIS_BUILD_ID}-${TRAVIS_BUILD_NUMBER}-${TRAVIS_COMMIT}
+- docker build -t rahulc810/ascii2img:${TRAVIS_BUILD_ID}-${TRAVIS_BUILD_NUMBER}-${TRAVIS_COMMIT} .
 - docker run -d -p 127.0.0.1:80:3000 rahulc810/ascii2img:${TRAVIS_BUILD_ID}-${TRAVIS_BUILD_NUMBER}-{TRAVIS_COMMIT}
 
 install:
