@@ -1,0 +1,6 @@
+node_modules
+coverage
+.gitignore
+README.md
+*.log
+.git

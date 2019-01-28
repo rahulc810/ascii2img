@@ -1,11 +1,16 @@
 language: node_js
-node_js:
-  node
+
+services:
+  - docker
+
 cache:
   directories:
   - node_modules
+
 before_install:
-- npm update
+- docker build -t rahulc810/ascii2img:${TRAVIS_BUILD_ID}-${TRAVIS_BUILD_NUMBER}-{TRAVIS_COMMIT}
+- docker run -d -p 127.0.0.1:80:3000 rahulc810/ascii2img:${TRAVIS_BUILD_ID}-${TRAVIS_BUILD_NUMBER}-{TRAVIS_COMMIT}
+
 install:
 - npm install
 script:
